@@ -16,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var editTextEmail: TextInputEditText
     private lateinit var editTextPassword: TextInputEditText
-    private lateinit var buttonLogin: Button
+    private lateinit var buttonLogin: LoadingButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
