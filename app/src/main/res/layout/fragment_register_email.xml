@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3">
+        app:layout_constraintVertical_bias="0.4">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,67 +24,36 @@
             tools:context=".login.view.LoginActivity">
 
             <ImageView
-                android:id="@+id/login_img_logo"
+
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginBottom="48dp"
+                android:layout_height="150dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
                 android:contentDescription="@null"
-                android:src="@drawable/instagram_logo_black" />
+                android:src="@drawable/photo_icon"
+                />
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/login_edit_email_input"
+                android:id="@+id/register_edit_email_input"
                 style="@style/Theme.Instagram.FormEditTextInput"
                 app:hintEnabled="false"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/login_edit_email"
+                    android:id="@+id/register_edit_email"
                     style="@style/Theme.Instagram.FormEditText"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/login_edit_email_password_input"
-                style="@style/Theme.Instagram.FormEditTextInput"
-                app:hintEnabled="false">
-
-                <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/login_edit_password"
-                style="@style/Theme.Instagram.FormEditText"
-                android:hint="@string/password"
-                android:inputType="textPassword" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
             <dev.tiagomarcial.instagram.login.view.LoadingButton
-                android:id="@+id/login_btn_enter"
+                android:id="@+id/register_btn_enter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:text="@string/enter" />
+                app:text="@string/next" />
 
 
-            <FrameLayout
-
-                style="@style/Theme.Instagram.FormContainer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_gravity="center"
-                    android:background="@color/gray_border" />
-
-                <TextView
-                    style="@style/Theme.Instagram.TextViewBase"
-                    android:layout_gravity="center"
-                    android:background="@color/white"
-                    android:padding="8dp"
-                    android:text="@string/or" />
-
-            </FrameLayout>
 
         </LinearLayout>
 
@@ -94,21 +63,21 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/gray_darker"
-        app:layout_constraintBottom_toTopOf="@+id/login_txt_register"
+        app:layout_constraintBottom_toTopOf="@+id/register_txt_register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
 
         />
 
     <TextView
-        android:id="@+id/login_txt_register"
+        android:id="@+id/register_txt_register"
         style="@style/Theme.Instagram.TextViewBase"
         android:layout_width="0dp"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
         android:background="@color/white"
         android:padding="24dp"
-        android:text="@string/does_not_have_account"
+        android:text="@string/already_has_account"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

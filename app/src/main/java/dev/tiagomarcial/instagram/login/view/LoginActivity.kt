@@ -34,8 +34,14 @@ class LoginActivity : AppCompatActivity() {
         editTextPassword.addTextChangedListener(watcher)
 
         buttonLogin.setOnClickListener {
+            buttonLogin.showProgress(true)
+
             findViewById<TextInputLayout>(R.id.login_edit_email_input).error = "E-mail inválido"
             findViewById<TextInputLayout>(R.id.login_edit_email_password_input).error = "Senha inválida"
+
+            android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                buttonLogin.showProgress(false)
+            }, 2000)
         }
     }
 
@@ -50,7 +56,6 @@ class LoginActivity : AppCompatActivity() {
     private fun validateFields() {
         val email = editTextEmail.text?.toString() ?: ""
         val password = editTextPassword.text?.toString() ?: ""
-
         val isEmailValid = email.contains("@")
         val isPasswordValid = password.isNotEmpty()
 
