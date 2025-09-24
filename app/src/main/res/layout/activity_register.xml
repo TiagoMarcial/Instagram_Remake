@@ -13,8 +13,8 @@
         android:id="@+id/register_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="dev.tiagomarcial.instagram.register.view.RegisterNamePasswordFragment"
-        tools:layout="@layout/fragment_register_name_password"
+        android:name="dev.tiagomarcial.instagram.register.view.RegisterPhotoFragment"
+        tools:layout="@layout/fragment_register_photo"
         />
 
 </LinearLayout>
