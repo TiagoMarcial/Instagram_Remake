@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import dev.tiagomarcial.instagram.R
+import dev.tiagomarcial.instagram.commom.view.customDialog
 
 class RegisterPhotoFragment : Fragment() {
 
@@ -16,4 +17,16 @@ class RegisterPhotoFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_register_photo, container, false)
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val customDialog = customDialog(requireContext())
+
+        customDialog.addButton({}, R.string.photo, R.string.gallery)
+
+        customDialog.show()
+
+    }
+
 }
