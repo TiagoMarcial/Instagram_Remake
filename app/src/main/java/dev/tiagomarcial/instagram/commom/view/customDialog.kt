@@ -26,6 +26,10 @@ class customDialog(context : Context) : Dialog(context) {
 
         texts.forEachIndexed { index, txtId ->
             txtButtons[index].setText(txtId)
+            txtButtons[index].setOnClickListener {
+                listener.onClick(it)
+                dismiss()
+            }
         }
     }
 
