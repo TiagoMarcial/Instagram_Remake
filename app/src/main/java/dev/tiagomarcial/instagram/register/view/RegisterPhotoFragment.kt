@@ -1,6 +1,7 @@
 package dev.tiagomarcial.instagram.register.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +24,22 @@ class RegisterPhotoFragment : Fragment() {
 
         val customDialog = customDialog(requireContext())
 
-        customDialog.addButton({}, R.string.photo, R.string.gallery, R.string.cancel)
+        customDialog.setTitle(R.string.define_photo_profile)
+
+        customDialog.addButton(R.string.photo, R.string.gallery, R.string.cancel) {
+            when (it.id) {
+                R.string.photo -> {
+                Log.i("Teste","foto")
+                }
+                R.string.gallery -> {
+
+                }
+                R.string.cancel -> {
+                    customDialog.dismiss()
+
+                }
+            }
+        }
 
         customDialog.show()
 
