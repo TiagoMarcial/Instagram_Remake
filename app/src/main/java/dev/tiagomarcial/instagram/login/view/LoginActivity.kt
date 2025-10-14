@@ -11,36 +11,36 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import dev.tiagomarcial.instagram.R
+import dev.tiagomarcial.instagram.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var editTextEmail: TextInputEditText
-    private lateinit var editTextPassword: TextInputEditText
-    private lateinit var buttonLogin: LoadingButton
+
+    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
 
-        editTextEmail = findViewById(R.id.login_edit_email)
-        editTextPassword = findViewById(R.id.login_edit_password)
-        buttonLogin = findViewById(R.id.login_btn_enter)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+
+        setContentView(binding.root)
+
+        binding.loginEditEmail.addTextChangedListener(watcher)
+        binding.loginEditPassword.addTextChangedListener(watcher)
 
 
-        buttonLogin.isEnabled = false
+        binding.loginBtnEnter.isEnabled = false
 
 
-        editTextEmail.addTextChangedListener(watcher)
-        editTextPassword.addTextChangedListener(watcher)
+        binding.loginBtnEnter.setOnClickListener {
+            binding.loginBtnEnter.showProgress(true)
 
-        buttonLogin.setOnClickListener {
-            buttonLogin.showProgress(true)
+            binding.loginEditEmailInput.error = "E-mail inválido"
+            binding.loginEditEmailPasswordInput.error = "Senha inválida"
 
-            findViewById<TextInputLayout>(R.id.login_edit_email_input).error = "E-mail inválido"
-            findViewById<TextInputLayout>(R.id.login_edit_email_password_input).error = "Senha inválida"
 
             android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
-                buttonLogin.showProgress(false)
+                binding.loginBtnEnter.showProgress(false)
             }, 2000)
         }
     }
@@ -54,12 +54,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun validateFields() {
-        val email = editTextEmail.text?.toString() ?: ""
-        val password = editTextPassword.text?.toString() ?: ""
+        val email = binding.loginEditEmail.text?.toString() ?: ""
+        val password = binding.loginEditPassword.text?.toString() ?: ""
         val isEmailValid = email.contains("@")
         val isPasswordValid = password.isNotEmpty()
 
-        buttonLogin.isEnabled = isEmailValid && isPasswordValid
+        binding.loginBtnEnter.isEnabled = isEmailValid && isPasswordValid
     }
 }
 
